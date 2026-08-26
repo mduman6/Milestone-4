@@ -1,0 +1,83 @@
+console.log("HW6: JavaScript Fundamentals Practice");
+console.log("Complete all 10 exercises. Test your code as you go.");
+
+// ------------------------------
+// Exercise 1: String variable
+// ------------------------------
+const studentName = "MaryAnn Duman";
+console.log(MaryAnn Duman);
+
+// ------------------------------
+// Exercise 2: Number variable
+// ------------------------------
+let hoursStudied = 12;
+console.log(hoursStudied);
+
+// ------------------------------
+// Exercise 3: Boolean variable
+// ------------------------------
+const isReady = true;
+console.log(isReady);
+
+// ------------------------------
+// Exercise 4: Array variable
+// ------------------------------
+const favoriteSites = ["GitHub", "MDN", "YouTube"];
+console.log(favoriteSites);
+
+// ------------------------------
+// Exercise 5: Function with a parameter
+// ------------------------------
+function makeGreeting(name) {
+return "Hello, " + name + "!";
+}
+console.log(makeGreeting("MaryAnn Duman"));
+
+// ------------------------------
+// Exercise 6: Function that does math
+// ------------------------------
+function calculateTotal(price, tax) {
+return price + tax;
+}
+console.log(calculateTotal(20, 2));
+
+// ------------------------------
+// Exercise 7: Conditional
+// ------------------------------
+function checkAge(age) {
+if (age >= 18) {
+return "adult";
+} else {
+return "minor";
+}
+}
+console.log(checkAge(20));
+console.log(checkAge(16));
+
+// ------------------------------
+// Exercise 8: Conditional with a score
+// ------------------------------
+function checkPassing(score) {
+return score >= 70 ? "pass" : "try again";
+}
+console.log(checkPassing(85));
+console.log(checkPassing(60));
+
+// ------------------------------
+// Exercise 9: Loop through an array
+// ------------------------------
+const webSkills = ["HTML", "CSS", "JavaScript"];
+webSkills.forEach(function (skill) {
+console.log(skill);
+});
+
+// ------------------------------
+// Exercise 10: Loop and return a value
+// ------------------------------
+function countItems(items) {
+let count = 0;
+for (let i = 0; i < items.length; i++) { count++; } return count; } console.log(countItems(["HTML", "CSS" , "JS" ])); //
+    ------------------------------ // Final check // TODO: When all exercises are done, write one sentence in a comment
+    below: // What part of JavaScript feels clearest to you so far? // ------------------------------ // The part of
+    Javascript feels clearest to me so far is that i get to use different tools to play around with to have more better
+    understanding of different types. As well on how they are function different ways.
