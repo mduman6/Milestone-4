@@ -1,0 +1,144 @@
+/* Google Fonts Import */
+@import url('https://googleapis.com');
+
+/* ==========================================================================
+   1. Base Styles & Spacing System (Type Selectors)
+   ========================================================================== */
+body {
+    background-color: #37f3a7;
+    /* Rich Forest Green Background */
+    color: #F9F8F6;
+    /* Warm Cream Global Text */
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 16px;
+    /* Base mobile padding (8px * 2) */
+}
+
+h1,
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: #D96B43;
+    /* Burnt Orange Accent */
+    margin: 0 0 16px 0;
+    /* Consistent bottom spacing (8px * 2) */
+}
+
+p {
+    margin: 0 0 16px 0;
+    /* Paragraph spacing system (8px * 2) */
+    line-height: 1.6;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    /* Soft corners (8px * 1) */
+}
+
+/* ==========================================================================
+   2. Components & Layout Identity (ID Selectors)
+   ========================================================================== */
+#MaryAnn {
+    font-size: 24px;
+    font-weight: 600;
+    color: #D96B43;
+    /* Burnt Orange Accent */
+    margin-bottom: 16px;
+    /* Spacing below profile indicator (8px * 2) */
+}
+
+/* ==========================================================================
+   3. Containers & Content Flow (Class Selectors)
+   ========================================================================== */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    /* Default stacked flow for 320px+ screens */
+    gap: 24px;
+    /* Flexible gap between main components (8px * 3) */
+}
+
+.camp-section {
+    background-color: #F9F8F6;
+    /* Warm Cream Text Container */
+    color: #95f603;
+    /* Dark Forest Green for readable body text */
+    padding: 32px;
+    /* Generous interior padding (8px * 4) */
+    border-radius: 8px;
+    /* Standard element radius (8px * 1) */
+}
+
+.camp-section h2 {
+    color: #2C4A3E;
+    /* Reverting header color to match text contrast */
+}
+
+.activity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on narrow 320px screens */
+    gap: 8px;
+    /* Grid spacing (8px * 1) */
+    margin-top: 16px;
+    /* Break away from text (8px * 2) */
+}
+
+.tag {
+    background-color: #D96B43;
+    /* Burnt Orange Tag Background */
+    color: #F9F8F6;
+    /* Warm Cream Tag Text */
+    padding: 8px 16px;
+    /* Proportional internal spacing (8px * 1 by 8px * 2) */
+    border-radius: 24px;
+    /* Pill shape styling (8px * 3) */
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   4. Responsiveness (Media Queries)
+   ========================================================================== */
+
+/* Target: Tablet Viewports (768px and up) */
+@media (min-width: 768px) {
+    body {
+        padding: 32px;
+        /* Expanded edge margins (8px * 4) */
+    }
+
+    .main-layout {
+        gap: 32px;
+        /* Uniform spacing system growth (8px * 4) */
+    }
+}
+
+/* Target: Desktop Viewports (1200px and up) */
+@media (min-width: 1200px) {
+    body {
+        padding: 48px;
+        /* Maximum canvas breathing room (8px * 6) */
+    }
+
+    .main-layout {
+        max-width: 1120px;
+        /* Fixed grid boundary matching common desktops */
+        margin: 0 auto;
+        /* Perfectly centers layout block on high-res monitors */
+        flex-direction: row;
+        /* Changes vertical column to side-by-side arrangement */
+        align-items: flex-start;
+        /* Prevents elements from stretching weirdly */
+        gap: 48px;
+        /* Column separation (8px * 6) */
+    }
+
+    .image-container,
+    .camp-section {
+        flex: 1;
+        /* Allocates layout space evenly to both halves */
+    }
+}
