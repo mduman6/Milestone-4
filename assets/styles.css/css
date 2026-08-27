@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Simple DOM example</title>
+    <title>I Love my 6 kids!</title>
+    <title>I Love my 6 Kids!</title>
 </head>
 
 <body>
     <section>
-        <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur
-        standing upright like a human, with small arms, and a
-        large head with lots of sharp teeth." />
+        <img src="I love my 6 Kids.png" alt="
+       kids." />
         <p>
             Here we will add a link to the
-            <a href="https://www.mozilla.org/">Mozilla homepage</a>
+            <a href="https://www.Ilovemy6kids.org/">Ilovemy6kids homepage</a>
         </p>
     </section>
 </body>
