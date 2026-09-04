@@ -1,71 +1,28 @@
 <!DOCTYPE html>
-<main>
-  <h1>I love my 6 Kids</h1>
-  <p> They are my Blessings</p>
-  <p> The cheer me up 247.</p>
-
-  <section>
-    <h2>The tell me to keep pushing mommy you got this!</h2>
-    <ul>
-      <li>they are all ages</li>
-      <li>4 girls ages 14, 11, 8, 4</li>
-      <li> My 2 boys are 5, and 2 </li>
-      <li>the love to eat and be outside doing nature calles like me</li>
-    </ul>
-  </section>
-</main>
-<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>New Castle Live Data</title>
-  <style>
-    body {
-      font-family: monospace;
-      background: #222;
-      color: #0f0;
-      padding: 20px;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Castle Live Weather Data</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <h1>New Castle, DE Live API JSON Output</h1>
-  <pre id="json-output">Loading live JSON data...</pre>
 
-  <script>
-    const url = 'https://open-meteo.com';
+  <header>
+    <nav>
+      <a href="index.html" class="active">Live Weather</a>
+      <a href="about.html">About Me</a>
+    </nav>
+  </header>
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        // Formats the raw response object to look exactly like your structure
-        const structuralMatch = {
-          current: {
-            time: data.current.time,
-            temperature_2m: data.current.temperature_2m,
-            wind_speed_10m: data.current.wind_speed_10m
-          },
-          hourly: {
-            time: data.hourly.time,
-            wind_speed_10m: data.hourly.wind_speed_10m,
-            temperature_2m: data.hourly.temperature_2m,
-            relative_humidity_2m: data.hourly.relative_humidity_2m
-          }
-        };
+  <main>
+    <section class="api-card">
+      <h1>New Castle, DE Live API JSON Output</h1>
+      <div class="status-badge">Live API Status: Connecting...</div>
+      <pre id="json-output">Loading live JSON data...</pre>
+    </section>
+  </main>
 
-        // Displays the structured data beautifully on your page
-        document.getElementById('json-output').textContent = JSON.stringify(structuralMatch, null, 2);
-      })
-      .catch(error => {
-        document.getElementById('json-output').textContent = 'Error fetching live data.';
-      });
-  </script>
+  <script src="src/app.js"></script>
 </body>
-
 </html>
