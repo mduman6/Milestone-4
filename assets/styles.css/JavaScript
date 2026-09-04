@@ -1,83 +1,54 @@
-console.log("HW6: JavaScript Fundamentals Practice");
-console.log("Complete all 10 exercises. Test your code as you go.");
+/**
+ * New Castle, DE Weather Engine
+ * Target: Fetches, structures, and outputs live localized API metrics
+ */
 
-// ------------------------------
-// Exercise 1: String variable
-// ------------------------------
-const studentName = "MaryAnn Duman";
-console.log(MaryAnn Duman);
+const LATITUDE = 39.6621;
+const LONGITUDE = -75.5666;
+const API_URL = `https://open-meteo.com{LATITUDE}&longitude=${LONGITUDE}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York`;
 
-// ------------------------------
-// Exercise 2: Number variable
-// ------------------------------
-let hoursStudied = 12;
-console.log(hoursStudied);
+async function fetchWeatherData() {
+  const outputElement = document.getElementById('json-output');
+  const badgeElement = document.querySelector('.status-badge');
 
-// ------------------------------
-// Exercise 3: Boolean variable
-// ------------------------------
-const isReady = true;
-console.log(isReady);
+  try {
+    const response = await fetch(API_URL);
 
-// ------------------------------
-// Exercise 4: Array variable
-// ------------------------------
-const favoriteSites = ["GitHub", "MDN", "YouTube"];
-console.log(favoriteSites);
+    if (!response.ok) {
+      throw new Error(`Server responded with code: ${response.status}`);
+    }
 
-// ------------------------------
-// Exercise 5: Function with a parameter
-// ------------------------------
-function makeGreeting(name) {
-return "Hello, " + name + "!";
+    const data = await response.json();
+
+    const structuralMatch = {
+      location: {
+        city: "New Castle",
+        state: "DE",
+        coordinates: `${LATITUDE}, ${LONGITUDE}`
+      },
+      current: {
+        time: data.current.time,
+        temperature_2m: `${data.current.temperature_2m} °F`,
+        wind_speed_10m: `${data.current.wind_speed_10m} mph`
+      },
+      hourly: {
+        time: data.hourly.time.slice(0, 6),
+        temperature_2m: data.hourly.temperature_2m.slice(0, 6),
+        relative_humidity_2m: data.hourly.relative_humidity_2m.slice(0, 6),
+        wind_speed_10m: data.hourly.wind_speed_10m.slice(0, 6)
+      }
+    };
+
+    outputElement.textContent = JSON.stringify(structuralMatch, null, 2);
+    badgeElement.textContent = "Live API Status: Active / Stable";
+    badgeElement.style.color = "#04d361";
+
+  } catch (error) {
+    console.error("API Pipeline Error:", error);
+    outputElement.textContent = `// Error fetching live metrics.\n// ${error.message}`;
+    badgeElement.textContent = "Live API Status: Connection Broken";
+    badgeElement.style.color = "#df4040";
+  }
 }
-console.log(makeGreeting("MaryAnn Duman"));
 
-// ------------------------------
-// Exercise 6: Function that does math
-// ------------------------------
-function calculateTotal(price, tax) {
-return price + tax;
-}
-console.log(calculateTotal(20, 2));
-
-// ------------------------------
-// Exercise 7: Conditional
-// ------------------------------
-function checkAge(age) {
-if (age >= 18) {
-return "adult";
-} else {
-return "minor";
-}
-}
-console.log(checkAge(20));
-console.log(checkAge(16));
-
-// ------------------------------
-// Exercise 8: Conditional with a score
-// ------------------------------
-function checkPassing(score) {
-return score >= 70 ? "pass" : "try again";
-}
-console.log(checkPassing(85));
-console.log(checkPassing(60));
-
-// ------------------------------
-// Exercise 9: Loop through an array
-// ------------------------------
-const webSkills = ["HTML", "CSS", "JavaScript"];
-webSkills.forEach(function (skill) {
-console.log(skill);
-});
-
-// ------------------------------
-// Exercise 10: Loop and return a value
-// ------------------------------
-function countItems(items) {
-let count = 0;
-for (let i = 0; i < items.length; i++) { count++; } return count; } console.log(countItems(["HTML", "CSS" , "JS" ])); //
-    ------------------------------ // Final check // TODO: When all exercises are done, write one sentence in a comment
-    below: // What part of JavaScript feels clearest to you so far? // ------------------------------ // The part of
-    Javascript feels clearest to me so far is that i get to use different tools to play around with to have more better
-    understanding of different types. As well on how they are function different ways.
+document.addEventListener('DOMContentLoaded', fetchWeatherData);
